@@ -1,0 +1,38 @@
+import React, { useContext } from 'react'
+import { AuthContext } from './AuthProvider'
+import { useNavigate, Link } from 'react-router-dom'
+
+
+const Logout = () => {
+
+    const auth = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        auth.handleLogout()
+        window.location.reload()
+        navigate("/",{state : {message : " You have benn Logged Out..!"}})
+    }
+
+    const isLoggenIn = auth.user !== null
+  return isLoggenIn ? (
+    <>
+      <li>
+        <Link className = "dropdown-item" to = {"/profile"}>
+            Profile
+        </Link>
+      </li>
+      <li>
+        <hr className='dropdown-divider'/>
+      </li>
+      <button className='dropdown-item' onClick = {handleLogout}>
+        Logout
+      </button>
+    </>
+  ):null
+
+  
+}
+
+export default Logout
