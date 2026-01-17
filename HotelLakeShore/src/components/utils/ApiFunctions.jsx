@@ -168,7 +168,7 @@ export async function cancelBookings(bookingId,token){
             "Content-Type": "Application/json"
           }
        })
-       return result.data
+       return result;
     }
     catch(error){
         console.log(error)
@@ -185,7 +185,7 @@ export async function getAvialableRooms(checkInDate, checkOutDate, roomType){
 
 export async function registerUser(registration){
     try{
-       const response  = await api.post("/auth/register-user",registration);
+       const response  = await api.post("/users/register-user",registration);
        return response.data
     }
     catch(error){
@@ -201,6 +201,7 @@ export async function registerUser(registration){
 export async function loginUser(loginData){
     try{
         const response = await api.post("/auth/login",loginData)
+        console.log(response)
         if(response.status >= 200 && response.status <=300){
             return response.data    
         }
@@ -216,7 +217,7 @@ export async function loginUser(loginData){
 
 export async function getUserProfile(userId, token){
     try{
-       const response = await api.get(`/users/user/${userId}`,{
+       const response = await api.get(`/users/get-user-by-email/${userId}`,{
            headers:getHeader()
        })
        return response.data
@@ -293,7 +294,7 @@ export async function removeRole(userId,roleId,token){
 export async function getAllUser(token){
     
     try{
-       const response = await api.get('/users/all-users',{
+       const response = await api.get('/users/3000',{
         headers : {
             Authorization : `Bearer ${token}`
         }

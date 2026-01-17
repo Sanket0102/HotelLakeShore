@@ -7,7 +7,12 @@ const Registration = () => {
         firstName:"",
         lastName:"",
         email:"",
-        password:""
+        password:"",
+        roles : [
+            {
+                roleName : "ROLE_USER"
+            }
+        ]
     })
 
     const [errorMessage, setErrorMessage] = useState()
@@ -28,7 +33,12 @@ const Registration = () => {
             firstName:"",
             lastName:"",
             email:"",
-            password:""
+            password:"",
+             roles : [
+            {
+                roleName : "ROLE_USER"
+            }
+        ]
            })
         }
         catch(error){

@@ -9,7 +9,7 @@ const Login = () => {
 
     const [errorMessage,setErrorMessage] = useState("")
     const [loginData,setLoginData] = useState({
-        email:"",
+        username:"",
         password:""
     })
 
@@ -46,7 +46,7 @@ const Login = () => {
              <div className='row'>
                 <label htmlFor='email' className='col-sm-2 col-form-label'>Email</label>
                 <input className='form-control m-3' id='email' type='email' 
-                placeholder = "Enter your email address here" name = 'email' value={loginData.email} onChange={handleInputChange} />
+                placeholder = "Enter your email address here" name = 'username' value={loginData.username} onChange={handleInputChange} />
              </div>
              <div className='row'>
                 <label htmlFor='password' className='col-sm-2 col-form-label'>Password</label>

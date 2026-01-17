@@ -87,7 +87,7 @@ const CheckOut = () => {
             )}
 
           </div>
-          <div className='col-md-6'>
+          <div className='col-md-8'>
                  <BookingForm />
           </div>
         </div>
